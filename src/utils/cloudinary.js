@@ -17,7 +17,8 @@ import fs from 'fs';
                 resource_type: 'auto', // Automatically detect the resource type (image, video, etc
         })
         //file has been uploaded scuccessfully
-        console.log('File uploaded on cloudinary', response.url);
+        //console.log('File uploaded on cloudinary', response.url);
+        fs.unlinkSync(localFilePath);
         return response;
     } catch (error) {
         fs.unlinkSync(localFilePath); // Delete the local file if upload fails
